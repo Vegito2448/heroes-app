@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import { routesConfig } from "../../routers";
 
 
 export const Navbar = () => {
@@ -9,29 +10,26 @@ export const Navbar = () => {
         className="navbar-brand"
         to="/"
       >
-        Asociaciones
+        Heroes App
       </Link>
 
       <div className="navbar-collapse">
         <div className="navbar-nav">
-
-          <NavLink
-            className="nav-item nav-link"
-            to="/marvel"
-          >
-            Marvel
-          </NavLink>
-
-          <NavLink
-            className="nav-item nav-link"
-            to="/dc"
-          >
-            DC
-          </NavLink>
+          {
+            routesConfig.map(({ path, title }) => title && (
+              <NavLink
+                key={path + title}
+                className="nav-item nav-link text-nowrap"
+                to={`/${path}`}
+              >
+                {title}
+              </NavLink>
+            ))
+          }
         </div>
       </div>
 
-      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <div className="navbar-collapse  w-100 order-3 dual-collapse2 justify-content-end">
         <ul className="navbar-nav ml-auto">
           <NavLink
             className="nav-item nav-link"

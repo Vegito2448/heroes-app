@@ -1,6 +1,11 @@
+import { HeroList } from "../../components";
 
 export const DcScreen = () => {
   return (
-    <div>DcScreen</div>
+    <>
+      <h1>Dc Heroes</h1>
+      <hr />
+      <HeroList />
+    </>
   );
 };

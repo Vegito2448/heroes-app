@@ -1,6 +1,12 @@
+import { HeroList } from "../../components/";
 
 export const MarvelScreen = () => {
+
   return (
-    <div>MarvelScreen</div>
+    <div>
+      <h1>Marvel Heroes</h1>
+      <hr />
+      <HeroList />
+    </div>
   );
 };
