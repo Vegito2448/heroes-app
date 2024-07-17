@@ -1,7 +1,7 @@
 import queryString from "query-string";
-import { redirect, RouteObject } from "react-router-dom";
+import { LoaderFunctionArgs, redirect } from "react-router-dom";
 import { getHeroById, getHeroes, getHeroesByPublisher } from "../api";
-import { DcScreen, HeroScreen, MarvelScreen, SearchScreen } from "./routes";
+import { DcScreen, HeroScreen, MarvelScreen, PrivateRoute, SearchScreen } from "./routes";
 
 const createLoaderForPublisher = (publisher: string) => async () => {
   const heroes = await getHeroesByPublisher({ publisher });
@@ -12,19 +12,19 @@ const routesConfig = [
   {
     path: 'marvel',
     loader: createLoaderForPublisher("Marvel Comics"),
-    element: <MarvelScreen />,
+    element: <PrivateRoute children={<MarvelScreen />} />,
     title: "Marvel Heroes"
   },
   {
     path: 'dc',
     loader: createLoaderForPublisher("DC Comics"),
-    element: <DcScreen />,
+    element: <PrivateRoute children={<DcScreen />} />,
     title: "DC Heroes"
   },
   {
     path: "hero/:heroId",
-    element: <HeroScreen />,
-    loader: async ({ params: { heroId: id } }) => {
+    element: <PrivateRoute children={<HeroScreen />} />,
+    loader: async ({ params: { heroId: id } }: LoaderFunctionArgs) => {
       if (isNaN(Number(id)) || !id) {
         return redirect('/');
       }
@@ -45,8 +45,8 @@ const routesConfig = [
   },
   {
     path: 'search',
-    element: <SearchScreen />,
-    loader: async ({ request }) => {
+    element: <PrivateRoute children={<SearchScreen />} />,
+    loader: async ({ request }: LoaderFunctionArgs) => {
       const { url } = request;
 
       const { q = '' } = queryString.parse(url.split('?')[1]);
@@ -65,6 +65,6 @@ const routesConfig = [
     },
     title: "Search Heroes"
   }
-] as RouteObject[];
+];
 export { routesConfig };
 

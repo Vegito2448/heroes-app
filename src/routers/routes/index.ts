@@ -3,5 +3,7 @@ export * from './ErrorPage';
 export * from './HeroScreen';
 export * from './Login';
 export * from './MarvelScreen';
+export * from './PrivateRoute';
+export * from './PublicRoute';
 export * from './Root';
 export * from './SearchScreen';

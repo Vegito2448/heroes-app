@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Navbar, WelcomePage } from '../../components';
 
 export const Root = () => {
+
   const { pathname } = useLocation();
 
   return (

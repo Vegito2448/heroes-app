@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import { AuthContext } from "../../auth";
 import './index.css';
 export const WelcomePage = () => {
+  const { user: { name } } = useContext(AuthContext);
   return (
     <div className="container-fluid container">
       <div className="container__item landing-page-container">
@@ -37,7 +40,7 @@ export const WelcomePage = () => {
 
           <div className="container-md ellipses-container">
 
-            <h2 className="greeting">Hello</h2>
+            <h2 className="greeting text-center">Hello {name}</h2>
 
             <div className="ellipses ellipses__outer--thin">
 
