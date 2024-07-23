@@ -14,11 +14,11 @@ export const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
   const location = useLocation();
 
-
   useEffect(() => {
     localStorage.setItem('lastPath', location.pathname);
 
     if (!logged) {
+      console.log('no logeado');
       navigate('/login', { replace: true });
     }
 

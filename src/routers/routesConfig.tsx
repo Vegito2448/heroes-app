@@ -1,14 +1,24 @@
 import queryString from "query-string";
-import { LoaderFunctionArgs, redirect } from "react-router-dom";
+import { LoaderFunctionArgs, redirect, RouteObject } from "react-router-dom";
 import { getHeroById, getHeroes, getHeroesByPublisher } from "../api";
+import { WelcomePage } from "../components";
 import { DcScreen, HeroScreen, MarvelScreen, PrivateRoute, SearchScreen } from "./routes";
+
+export type RouteConfig = RouteObject & {
+  title?: string;
+  // children?: Array<RouteConfig>;
+};
 
 const createLoaderForPublisher = (publisher: string) => async () => {
   const heroes = await getHeroesByPublisher({ publisher });
   return { heroes };
 };
 
-const routesConfig = [
+const routesConfig: RouteConfig[] = [
+  {
+    index: true,
+    element: <WelcomePage />,
+  },
   {
     path: 'marvel',
     loader: createLoaderForPublisher("Marvel Comics"),
@@ -63,7 +73,7 @@ const routesConfig = [
         heroes
       };
     },
-    title: "Search Heroes"
+    title: "Search Heroes",
   }
 ];
 export { routesConfig };

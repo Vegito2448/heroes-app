@@ -1,24 +1,15 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { Navbar, WelcomePage } from '../../components';
+import { Outlet } from "react-router-dom";
+import { Navbar } from '../../components';
 
 export const Root = () => {
-
-  const { pathname } = useLocation();
-
   return (
     <>
       <Navbar />
-
-      <div
+      <main
         className="container container-fluid mt-2 mx-auto "
       >
-        {
-          pathname === '/' ? (
-            WelcomePage()
-          ) : <Outlet />
-        }
-
-      </div>
+        <Outlet />
+      </main>
     </>
   );
 };

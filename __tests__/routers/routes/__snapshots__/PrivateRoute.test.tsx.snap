@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PrivateRoute > should show component dashboard if user is logged 1`] = `
+<span>
+  dashboard
+</span>
+`;
+
+exports[`PrivateRoute > should show component login first time 1`] = `
+<span>
+  login
+</span>
+`;

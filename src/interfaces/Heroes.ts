@@ -2,7 +2,7 @@ export interface Hero {
   id: number;
   name: string;
   slug: string;
-  powerstats: Powerstats;
+  powerstats: PowerStats;
   appearance: Appearance;
   biography: Biography;
   work: Work;
@@ -54,7 +54,7 @@ export interface Images {
   lg: string;
 }
 
-export interface Powerstats {
+export interface PowerStats {
   intelligence: number;
   strength: number;
   speed: number;

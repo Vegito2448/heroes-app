@@ -5,7 +5,8 @@ import {
 import { ErrorPage, Login, PublicRoute, Root } from "./routes";
 import { routesConfig } from "./routesConfig";
 
-export const router = createBrowserRouter([
+
+export const allRoutes: RouteObject[] = [
   {
     path: "/login",
     element: <PublicRoute children={<Login />} />,
@@ -16,5 +17,7 @@ export const router = createBrowserRouter([
     children: routesConfig as RouteObject[],
     errorElement: <ErrorPage />
   },
-]);
+];
+
+export const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter(allRoutes);
 
