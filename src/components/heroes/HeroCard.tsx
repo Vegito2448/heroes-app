@@ -26,7 +26,7 @@ export const HeroCard = ({ hero }: HeroCardProps) => {
               hero.biography.alterEgos + " first appearance: " + hero.biography.firstAppearance
             }
           </p>
-          <Link to={`hero/${hero.id}`} className="btn btn-primary">
+          <Link to={`/heroes-app/hero/${hero.id}`} className="btn btn-primary">
             More...
           </Link>
         </div>
