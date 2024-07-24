@@ -18,7 +18,7 @@ export const PrivateRoute = ({ children }: PrivateRouteProps) => {
     localStorage.setItem('lastPath', location.pathname);
 
     if (!logged) {
-      navigate('login', { replace: true });
+      navigate('/heroes-app/login', { replace: true });
     }
 
   }, [location.pathname, logged, navigate]);
