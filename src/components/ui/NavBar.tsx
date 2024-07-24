@@ -31,7 +31,7 @@ export const Navbar = () => {
               <NavLink
                 key={path + title}
                 className="nav-item nav-link text-nowrap"
-                to={`/${path}`}
+                to={path}
               >
                 {title}
               </NavLink>
