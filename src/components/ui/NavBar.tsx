@@ -27,7 +27,7 @@ export const Navbar = () => {
       <div className="navbar-collapse">
         <div className="navbar-nav">
           {
-            routesConfig.map(({ path, title }) => title && (
+            routesConfig.map(({ path, title }) => title && path && (
               <NavLink
                 key={path + title}
                 className="nav-item nav-link text-nowrap"
