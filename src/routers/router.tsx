@@ -8,11 +8,11 @@ import { routesConfig } from "./routesConfig";
 
 export const allRoutes: RouteObject[] = [
   {
-    path: "/heroes-app/login",
+    path: "/heroes-app/login/",
     element: <PublicRoute children={<Login />} />,
   },
   {
-    path: "/heroes-app",
+    path: "/heroes-app/",
     element: <Root />,
     children: routesConfig as RouteObject[],
     errorElement: <ErrorPage />
