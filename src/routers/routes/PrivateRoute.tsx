@@ -18,8 +18,7 @@ export const PrivateRoute = ({ children }: PrivateRouteProps) => {
     localStorage.setItem('lastPath', location.pathname);
 
     if (!logged) {
-      console.log('no logeado');
-      navigate('/login', { replace: true });
+      navigate('login', { replace: true });
     }
 
   }, [location.pathname, logged, navigate]);
