@@ -51,7 +51,7 @@ export const Navbar = () => {
             </span>
             <NavLink
               className="nav-item nav-link btn"
-              to="/login"
+              to="login"
               replace
               onClick={handleClick}
             >
